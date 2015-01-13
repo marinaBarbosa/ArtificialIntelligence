@@ -24,7 +24,6 @@
 *.x86_64
 *.hex
 #Project
-.codelite
 .clang
 *.project
 *.workspace

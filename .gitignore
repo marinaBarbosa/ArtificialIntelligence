@@ -53,4 +53,3 @@ configurations.xml
 *.bash
 project.xml
 .dep.inc
-/gprof2dot.py

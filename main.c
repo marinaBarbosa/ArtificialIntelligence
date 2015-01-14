@@ -6,9 +6,17 @@
 #include "ficheiro.h"
 #include "algoritmo.h"
 
+void clearScreen() {
+    printf("\033[2J");
+    printf("\033[%d;%dH", 0, 0);
+}
+
+void doPause() {
+    printf("%s", "Prima uma tecla para continuar...");
+    getchar();
+}
+
 int main(void) {
-    
-    
     List *dataset = NULL; // Original
     List *treino = NULL; // 70%
     List *teste = NULL; // 30%
@@ -27,13 +35,16 @@ int main(void) {
     int i,j,a,matriz[3][3];
     int opcao;
         
-    dataset = leituraFicheiroListaOriginal(dataset, "CTG_1500.csv");
+    //dataset = leituraFicheiroListaOriginal(dataset, "CTG_1500.csv");
     
-    printf ("\n1 - Mostrar Valores/Média/Variância/Dividir Ficheiros\n");
+    clearScreen();
+    
+    printf ("1 - Mostrar Valores/Média/Variância/Dividir Ficheiros\n");
     printf ("\n2 - Frequências Relativas\n");
     printf ("\n3 - Normalização dos Dados\n");
     printf ("\n4 - Média e Variância dos atributos da classe treino \n");
     printf ("\n5 - Algoritmo do vizinho mais próximo\n");
+    printf ("\nOpção -> ");
     scanf("%d", &opcao);
    
     switch (opcao){

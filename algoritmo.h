@@ -14,9 +14,10 @@
 #include <math.h>
 #include "datatype.h"
 
-int knnNeighbor(ListD *headD,ListN *headt, int kk);
+int knnNeighbor(ListD *headD,ListN *headt);
 void matrizConfusaoInicial(int intMatrix[][3]) ;
 void matrizConfusao(int nspT,int nspTr,int m[][3]);
+float ordenar (float d,float v,int index);
 
 #endif	/* ALGORITMO_H */
 

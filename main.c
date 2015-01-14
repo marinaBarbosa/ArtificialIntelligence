@@ -25,6 +25,7 @@ int main(void) {
     int nspTeste = 0;
     int nspTreino = 0;
     int i,j,a,matriz[3][3];
+    float valor;
     int opcao;
         
     dataset = leituraFicheiroListaOriginal(dataset, "CTG_1500.csv");
@@ -118,27 +119,74 @@ int main(void) {
          
             ListN *tsaux = norTeste; 
       
-            for(j=0;j<1051;j++) {
+            /*for(j=0;j<450;j++) {
                 
-                for(j=0;j<450;j++) {
+                for(i=0;i<1051;i++) {
                 
                 count = 0;
           
                 ListN *taux = norTreino;
               
-                fprintf(faux,"%d %.4f \n",i,distanciaEuclidiana (taux,tsaux));
+                fprintf(faux,"%d %.4f \n",i+1,distanciaEuclidiana (taux,tsaux));
                
                 printf("[%d][%d] = %f\n",j+1,i+1,distanciaEuclidiana (taux,tsaux));  
+                
                 //norDistD = leitura (norDistD, "valoresDistancia.csv");
 
-                    /*d[i] = d[i] = distanciaEuclidiana (taux,tsaux);
+                    d[i] = d[i] = distanciaEuclidiana (taux,tsaux);
                     
                     BubbleSort(d[i], i);*/
+                    //taux = taux->next;
+            // ListN *tsaux = norTeste;
+            
+            for(i = 0;i< 450; i++) {
+                         
+                ListN *taux = norTreino;
+                float res;
+                
+                for(j = 0; j< 1501; j++) {
+                    
+                    printf ("[%d] [%d] = %.4f\n",i+1,j+1, distanciaEuclidiana (taux,tsaux));
+                   // fprintf(faux,"[%d] [%d] = %.4f\n",i+1,j+1, distanciaEuclidiana (taux,tsaux));
+                    valor = ordenar (distanciaEuclidiana(taux,tsaux),valor,j);
+                    printf ("%.4f\n",valor);
                     taux = taux->next;
-
-                }
-                tsaux = tsaux->next;
+                    
+                }           
+            tsaux = tsaux->next;    
             }
-        break; 
-    }
-}
+        break;
+            
+        }
+          
+            ListD *daux = norDistD;
+            
+       /*     while (daux != NULL) {
+                fprintf(ford,"%d %.4f",daux->num, daux->data[0]);
+                fprintf(ford,"%c",'\n');
+                daux = daux->next;
+            }*/
+                     
+            nspTreino = knnNeighbor(norDistD,norTreino);
+            
+            nspTeste = norTeste->data[SIZE-1];
+            
+            printf("%d %d\n",nspTreino,nspTeste);
+            
+            matrizConfusaoInicial(matriz);
+            
+            matrizConfusao(nspTeste,nspTreino,matriz);
+            
+            for (i=0;i<3;i++) {
+                for (j=0;j<3;j++) {
+                    printf("[%d][%d] = %d\n",i+1,j+1,matriz[i][j]);
+                }
+            }
+        }
+             
+          
+             
+       
+
+        
+    

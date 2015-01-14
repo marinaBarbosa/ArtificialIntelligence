@@ -42,6 +42,9 @@ double calculoNormal (List *head ,int index) {
     double avg = mediaColuna (head, index);
     double desvio = desvioPadrao(head,index);
     
+    if (head->next == NULL)
+        printf("Last\n");
+    
     if (count > 21)
         return head->data[index];
     

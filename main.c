@@ -120,7 +120,7 @@ int main(void) {
       
             for(j=0;j<1051;j++) {
                 
-                for(j=0;j<450;j++) {
+                for(i=0;i<450;i++) {
                 
                 count = 0;
           
